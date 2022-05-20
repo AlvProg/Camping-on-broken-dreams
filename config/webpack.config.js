@@ -9,7 +9,7 @@ module.exports = function (env, argv) {
 
   return {
     context: path.resolve(__dirname, "..", "src"),
-    entry: "./models/index.ts",
+    entry: "./controllers/index.ts",
     module: {
       rules: [
         {
