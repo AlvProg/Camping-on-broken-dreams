@@ -1,6 +1,7 @@
-import Player from "../models/player";
 import Dungeon from "@mikewesthad/dungeon";
 import TILES from "../models/tile-mapping";
+import Player from "../models/player";
+import Snake from "../models/snake";
 
 /**
  * Crear escena de la dungeon
@@ -11,6 +12,7 @@ export default class DungeonScene extends Phaser.Scene {
   capaPrincipal: Phaser.Tilemaps.TilemapLayer;
   capaObjetos: Phaser.Tilemaps.TilemapLayer;
   player: Player;
+  enemie: Snake;
 
   preload() {
     this.load.image("tiles", "../assets/tilesets/buch-tileset-48px-extruded.png");
@@ -92,8 +94,12 @@ export default class DungeonScene extends Phaser.Scene {
     // Indicar el punto de spawneo del jugador
     this.player = new Player(this, map.widthInPixels / 2, map.heightInPixels / 2);
 
+     // Crear enemigos y colocarlos en diversos puntos
+     this.enemie= new Snake(this, map.widthInPixels / 2, map.heightInPixels / 2);
+
     // Añadir las colisiones
     this.physics.add.collider(this.player.sprite, this.capaPrincipal);
+    this.physics.add.collider(this.enemie.sprite, this.capaPrincipal);
 
     //Camara
     const camara = this.cameras.main;
