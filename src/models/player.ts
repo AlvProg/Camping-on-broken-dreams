@@ -1,16 +1,13 @@
 /**
- * Clase del jugador. Indica las posiciones de los frames de movimiento de este, 
+ * Clase del jugador. Indica las posiciones de los frames de movimiento de este,
  * sus atributos (como la velocidad) y las funciones necesarias para actualizar el movimiento
  * y destruir la clase
  */
 export default class Player {
-    //TODO: Poner los types correctos a cada entidad
-    //TODO: Arreglar el movimiento diagonal del personaje
-  sprite: any;
-  keys: any;
-  constructor(scene: any, x: number, y: number) {
-    //this.scene = scene;
-
+  sprite: Phaser.Types.Physics.Arcade.SpriteWithDynamicBody;
+  keys: Phaser.Types.Input.Keyboard.CursorKeys;
+  
+  constructor(scene: Phaser.Scene, x: number, y: number) {
     const anims = scene.anims;
     anims.create({
       key: "caminar",
@@ -73,9 +70,5 @@ export default class Player {
       // Inicio del movimiento
       prevVel.y < 0 ? sprite.setTexture("personajes", 65) : sprite.setTexture("personajes", 46);
     }
-  }
-
-  destroy() {
-    this.sprite.destroy();
   }
 }
