@@ -2,8 +2,8 @@
  * Clase del enemigo
  */
 export default class Snake {
+  public sprite: Phaser.Types.Physics.Arcade.SpriteWithDynamicBody;
 
-  sprite: Phaser.Types.Physics.Arcade.SpriteWithDynamicBody;
   constructor(scene: Phaser.Scene, x: number, y: number) {
 
     const anims = scene.anims;
@@ -14,7 +14,6 @@ export default class Snake {
       repeat: -1,
     });
 
-
     this.sprite = scene.physics.add.sprite(x, y, "personajes", 60)
     .setSize(22, 33)
     .setOffset(23, 27);
@@ -22,12 +21,8 @@ export default class Snake {
     this.sprite.anims.play("arrastrarse");  
   }
 
- 
 
   update() {
-    const sprite = this.sprite;
-    const velocidad = 300;
-    const prevVel = sprite.body.velocity.clone();
-    
+    const sprite = this.sprite;    
   }
 }

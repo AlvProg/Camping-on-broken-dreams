@@ -100,6 +100,7 @@ export default class DungeonScene extends Phaser.Scene {
     // Añadir las colisiones
     this.physics.add.collider(this.player.sprite, this.capaPrincipal);
     this.physics.add.collider(this.enemie.sprite, this.capaPrincipal);
+    this.physics.add.collider(this.player.sprite, this.enemie.sprite);
 
     //Camara
     const camara = this.cameras.main;
