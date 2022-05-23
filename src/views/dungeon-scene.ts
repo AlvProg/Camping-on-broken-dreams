@@ -1,5 +1,5 @@
 import Dungeon from "@mikewesthad/dungeon";
-import TILES from "../models/tile-mapping";
+import TILES from "./tile-mapping";
 import Player from "../models/player";
 import Snake from "../models/snake";
 
